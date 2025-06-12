@@ -7,14 +7,21 @@ from langgraph.graph import MessagesState
 
 
 class PPTState(MessagesState):
-    """State for the ppt generation."""
+    """
+    PPT生成的状态类
+    
+    继承自MessagesState，用于在PPT生成工作流中传递状态
+    """
 
     # Input
-    input: str = ""
+    # 输入
+    input: str = ""  # 输入文本
 
     # Output
-    generated_file_path: str = ""
+    # 输出
+    generated_file_path: str = ""  # 生成的PPT文件路径
 
     # Assets
-    ppt_content: str = ""
-    ppt_file_path: str = ""
+    # 资源
+    ppt_content: str = ""  # PPT内容
+    ppt_file_path: str = ""  # PPT文件路径

@@ -8,6 +8,7 @@ from typing import Dict, Any
 
 def replace_env_vars(value: str) -> str:
     """Replace environment variables in string values."""
+    # 替换字符串值中的环境变量
     if not isinstance(value, str):
         return value
     if value.startswith("$"):
@@ -18,6 +19,7 @@ def replace_env_vars(value: str) -> str:
 
 def process_dict(config: Dict[str, Any]) -> Dict[str, Any]:
     """Recursively process dictionary to replace environment variables."""
+    # 递归处理字典以替换环境变量
     if not config:
         return {}
     result = {}
@@ -31,11 +33,12 @@ def process_dict(config: Dict[str, Any]) -> Dict[str, Any]:
     return result
 
 
-_config_cache: Dict[str, Dict[str, Any]] = {}
+_config_cache: Dict[str, Dict[str, Any]] = {}  # 配置缓存
 
 
 def load_yaml_config(file_path: str) -> Dict[str, Any]:
     """Load and process YAML configuration file."""
+    # 加载并处理YAML配置文件
     # 如果文件不存在，返回{}
     if not os.path.exists(file_path):
         return {}

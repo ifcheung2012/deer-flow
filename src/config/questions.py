@@ -4,8 +4,10 @@
 """
 Built-in questions for Deer.
 """
+# Deer的内置问题
 
 # English built-in questions
+# 英文内置问题
 BUILT_IN_QUESTIONS = [
     "What factors are influencing AI adoption in healthcare?",
     "How does quantum computing impact cryptography?",
@@ -20,6 +22,7 @@ BUILT_IN_QUESTIONS = [
 ]
 
 # Chinese built-in questions
+# 中文内置问题
 BUILT_IN_QUESTIONS_ZH_CN = [
     "人工智能在医疗保健领域的应用有哪些因素影响?",
     "量子计算如何影响密码学?",
