@@ -1,14 +1,21 @@
+/* 导入Tailwind CSS核心样式 */
 @import "tailwindcss";
+/* 导入Tailwind动画CSS */
 @import "tw-animate-css";
+/* 导入排版插件 */
 @plugin "@tailwindcss/typography";
 
+/* 自定义暗色模式变体 */
 @custom-variant dark (&:is(.dark *));
 
+/* 主题定义 - 基础动画和字体 */
 @theme {
+  /* 定义系统字体堆栈 */
   --font-sans:
     var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
+  /* 淡入动画定义 */
   --animate-fade-in: fade-in 1s;
   @keyframes fade-in {
     0% {
@@ -19,6 +26,7 @@
     }
   }
 
+  /* 聚光灯效果动画定义 */
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
   @keyframes spotlight {
     0% {
@@ -32,11 +40,15 @@
   }
 }
 
+/* 内联主题定义 - 颜色和动画 */
 @theme inline {
+  /* 圆角半径变量 */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
+  /* 颜色别名映射 */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -55,11 +67,15 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  
+  /* 图表颜色 */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  
+  /* 侧边栏颜色 */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -68,8 +84,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* 应用和品牌颜色 */
   --color-app: var(--app-background);
   --color-brand: var(--brand);
+  
+  /* 极光动画定义 - 用于渐变背景效果 */
   --animate-aurora: aurora 8s ease-in-out infinite alternate;
   @keyframes aurora {
     0% {
@@ -93,6 +113,8 @@
       transform: rotate(-5deg) scale(0.9);
     }
   }
+  
+  /* 闪光动画定义 - 用于加载和高亮效果 */
   --animate-shine: shine var(--duration) infinite linear;
   @keyframes shine {
     0% {
@@ -107,9 +129,13 @@
   }
 }
 
+/* 根元素变量定义 - 浅色模式 */
 :root {
+  /* 基础设置 */
   --radius: 0.625rem;
   --app-background: #fffaf5;
+  
+  /* 主要颜色 - 使用OKLCH颜色空间 */
   --background: oklch(1 0 0);
   --foreground: rgba(0, 0, 0, 0.72);
   --card: oklch(1 0 0);
@@ -128,11 +154,15 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
+  
+  /* 图表颜色 */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+  
+  /* 侧边栏颜色 */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -143,6 +173,7 @@
   --sidebar-ring: oklch(0.708 0 0);
   --brand: #007aff;
 
+  /* Novel编辑器高亮颜色 - 浅色模式 */
   --novel-highlight-default: #ffffff;
   --novel-highlight-purple: #f6f3f8;
   --novel-highlight-red: #fdebeb;
@@ -154,6 +185,7 @@
   --novel-highlight-gray: #f1f1ef;
 }
 
+/* 暗色模式变量定义 */
 .dark {
   --background: oklch(0.145 0 0);
   --app-background: var(--background);
@@ -174,11 +206,15 @@
   --border: oklch(1 0 0 / 20%);
   --input: oklch(1 0 0 / 25%);
   --ring: oklch(0.556 0 0);
+  
+  /* 暗色模式图表颜色 */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+  
+  /* 暗色模式侧边栏颜色 */
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -189,6 +225,7 @@
   --sidebar-ring: oklch(0.556 0 0);
   --brand: rgb(17, 103, 234);
 
+  /* Novel编辑器高亮颜色 - 暗色模式 */
   --novel-highlight-default: #000000;
   --novel-highlight-purple: #3f2c4b;
   --novel-highlight-red: #5c1a1a;
@@ -200,21 +237,24 @@
   --novel-highlight-gray: #3a3a3a;
 }
 
+/* 基础层样式 */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50; /* 应用边框和轮廓样式 */
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* 应用背景和文本颜色 */
   }
 }
 
+/* 输入元素样式重置 */
 input,
 textarea {
-  outline: none;
+  outline: none; /* 移除默认轮廓 */
 }
 
+/* 按钮样式 */
 [role="button"],
 button {
-  cursor: pointer;
+  cursor: pointer; /* 设置指针样式 */
 }
